@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Users</title>
+</head>
+<body>
+<div th:switch="${users}">
+    <div th:case="null">
+        <h2>Пользователи не найдены!</h2>
+    </div>
+    <div th:case="*">
+        <h2>Список пользователей</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Номер</th>
+                <th>Имя</th>
+                <th>Возраст</th>
+                <th>Email</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="user : ${users}">
+                <td th:text="${user.id}"></td>
+                <td th:text="${user.name}"></td>
+                <td th:text="${user.age}"></td>
+                <td th:text="${user.email}"></td>
+                <td><a th:href="@{user-update/{id}(id=${user.id})}">Редактировать</a></td>
+                <td><a th:href="@{user-delete/{id}(id=${user.id})}">Удалить</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <p><a href="/user-create">Добавить пользователя</a></p>
+</div>
+</body>
+</html>
