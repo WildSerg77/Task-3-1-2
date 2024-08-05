@@ -1,7 +1,7 @@
 package com.example.task312.controller;
 
 import com.example.task312.model.User;
-import com.example.task312.service.UserService;
+import com.example.task312.service.UserServiceImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,9 +12,9 @@ import java.util.List;
 
 @Controller
 public class UserController {
-    private final UserService userService;
+    private final UserServiceImpl userService;
 
-    public UserController(UserService userService) {
+    public UserController(UserServiceImpl userService) {
         this.userService = userService;
     }
 
